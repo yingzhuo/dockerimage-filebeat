@@ -1,0 +1,10 @@
+version: "3.5"
+
+services:
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:5.6.16
+    container_name: filebeat-container
+    restart: "no"
+    volumes:
+    - ${PWD}/conf/filebeat.yml:/usr/share/filebeat/filebeat.yml
+    - /var/log/test:/var/log/test
