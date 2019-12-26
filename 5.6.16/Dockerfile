@@ -22,4 +22,6 @@ COPY --from=quay.io/yingzhuo/docktool /bin/docktool /bin/docktool
 
 ENV ES_PROTOCOL=http
 
+VOLUME /etc/filebeat
+
 CMD ["docker-entrypoint.sh"]

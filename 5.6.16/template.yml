@@ -14,8 +14,8 @@ output.elasticsearch:
   protocol: "{{ .ENV.ES_PROTOCOL }}"
 
   {{- if and .ENV.ES_USERNAME .ENV.ES_PASSWORD }}
-  #username: "{{ .ENV.ES_USERNAME }}"
-  #password: "{{ .ENV.ES_PASSWORD }}"
+  username: "{{ .ENV.ES_USERNAME }}"
+  password: "{{ .ENV.ES_PASSWORD }}"
   {{- end }}
 
   indices:
