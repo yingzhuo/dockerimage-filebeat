@@ -1,0 +1,22 @@
+filebeat.prospectors:
+  - input_type: log
+    paths:
+      - {{ .ENV.LOG_PATH }}
+    json.keys_under_root: true
+    json.overwrite_keys: true
+
+output.elasticsearch:
+  hosts:
+    {{- range $i, $it := ( .ENV.ES_HOSTS | toSlice "," ) }}
+    - "{{$it}}"
+    {{- end}}
+
+  protocol: "{{ .ENV.ES_PROTOCOL }}"
+
+  {{- if and .ENV.ES_USERNAME .ENV.ES_PASSWORD }}
+  #username: "{{ .ENV.ES_USERNAME }}"
+  #password: "{{ .ENV.ES_PASSWORD }}"
+  {{- end }}
+
+  indices:
+    - index: "{{ .ENV.ES_INDEX }}"

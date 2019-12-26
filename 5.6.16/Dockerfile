@@ -16,4 +16,10 @@ RUN apk add --no-cache tar && \
     chmod +x /bin/filebeat /bin/docker-entrypoint.sh && \
     mkdir -p /etc/filebeat/
 
+COPY ./template.yml /etc/filebeat/template.yml
+
+COPY --from=quay.io/yingzhuo/docktool /bin/docktool /bin/docktool
+
+ENV ES_PROTOCOL=http
+
 CMD ["docker-entrypoint.sh"]
