@@ -4,8 +4,7 @@ MAINTAINER 应卓 <yingzhor@gmail.com>
 
 COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 
-RUN apk add --no-cache tar && \
-    wget "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.16-linux-x86_64.tar.gz" -O filebeat-5.6.16-linux-x86_64.tar.gz && \
+RUN wget "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.16-linux-x86_64.tar.gz" -O filebeat-5.6.16-linux-x86_64.tar.gz && \
     tar -xvf filebeat-5.6.16-linux-x86_64.tar.gz -C . && \
     mv filebeat-5.6.16-linux-x86_64/filebeat /bin/filebeat && \
     mv filebeat-5.6.16-linux-x86_64/filebeat.template.json /filebeat.template.json && \
