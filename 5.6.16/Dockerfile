@@ -1,6 +1,10 @@
-FROM alpine:3.11.2
+FROM busybox:1.31.1
 
 MAINTAINER 应卓 <yingzhor@gmail.com>
+
+WORKDIR /
+
+USER root
 
 COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 
@@ -15,9 +19,11 @@ RUN wget "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.16-
     chmod +x /bin/filebeat /bin/docker-entrypoint.sh && \
     mkdir -p /etc/filebeat/
 
-COPY ./template.yml /etc/filebeat/template.yml
+COPY ./template.yml /etc/filebeat/template.yml.tmpl
 
 COPY --from=quay.io/yingzhuo/docktool /bin/docktool /bin/docktool
+
+STOPSIGNAL 15
 
 ENV ES_PROTOCOL=http
 

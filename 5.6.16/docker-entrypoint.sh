@@ -22,7 +22,7 @@ if [ "${ES_INDEX}" = "" ]; then
   exit 1
 fi
 
-docktool filegen -t="/etc/filebeat/template.yml" -o="/etc/filebeat/filebeat.yml"
+docktool filegen -t="/etc/filebeat/template.yml.tmpl" -o="/etc/filebeat/filebeat.yml"
 
 if [ -f "/etc/filebeat/filebeat.yml" ]; then
   exec filebeat -e -c /etc/filebeat/filebeat.yml
