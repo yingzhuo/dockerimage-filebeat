@@ -25,7 +25,7 @@ services:
 name                  | 默认值    | 如果不设置             | 示例
 ----------------------|----------|-----------------------|--------------------------------------------------------------------
 LOG_PATH              | <none>   | 启动失败               | /var/log/*.json
-FIELD                 | <none>   | 不设置                 | /var/log/*.json
+FIELD                 | <none>   | 不设置                 | app=nurse,layer=facade
 ES_HOSTS              | <none>   | 启动失败               | 192.168.99.114:9200,192.168.99.115:9200,192.168.99.116:9200
 ES_PROTOCOL           | http     | 使用默认值              | https
 ES_USERNAME           | <none>   | 不使用ES http-basic认证 | elastic
