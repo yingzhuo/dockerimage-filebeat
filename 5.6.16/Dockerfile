@@ -2,10 +2,6 @@ FROM busybox:1.31.1
 
 LABEL maintainer="应卓 <yingzhor@gmail.com>"
 
-WORKDIR /
-
-USER root
-
 COPY ./docker-entrypoint.sh /bin/docker-entrypoint.sh
 
 RUN wget "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.16-linux-x86_64.tar.gz" -O filebeat-5.6.16-linux-x86_64.tar.gz && \
