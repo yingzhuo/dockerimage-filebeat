@@ -1,6 +1,6 @@
 FROM busybox:1.31.1
 
-MAINTAINER 应卓 <yingzhor@gmail.com>
+LABEL maintainer="应卓 <yingzhor@gmail.com>"
 
 WORKDIR /
 
@@ -21,7 +21,7 @@ RUN wget "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-5.6.16-
 
 COPY ./template.yml /etc/filebeat/template.yml.tmpl
 
-COPY --from=quay.io/yingzhuo/docktool /bin/docktool /bin/docktool
+COPY --from=yingzhuo/docktool /bin/docktool /bin/docktool
 
 STOPSIGNAL 15
 
